@@ -14,8 +14,9 @@ const App = () => {
     <Navbar.Brand href="#home">Dance School</Navbar.Brand>
     <Nav className="mr-auto">
       <Nav.Link href="#home">Главная</Nav.Link>
-      <Nav.Link href="#features">Залы</Nav.Link>
-      <Nav.Link href="#pricing">Тренеры</Nav.Link>
+      <Nav.Link href="#diractions">Направления</Nav.Link>
+      <Nav.Link href="#trainers">Тренеры</Nav.Link>
+      <Nav.Link href="#gyms">Залы</Nav.Link>
     </Nav>
     <Form inline>
       <FormControl type="text" placeholder="Шукай" className="mr-sm-5" />

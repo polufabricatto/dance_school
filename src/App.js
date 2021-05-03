@@ -1,30 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
-import Button from 'react-bootstrap/Button';
-import {useState} from 'react';
-import Navbar from 'react-bootstrap/Navbar';
-import Nav from 'react-bootstrap/Nav';
-import Form from 'react-bootstrap/Form';
-import FormControl from 'react-bootstrap/FormControl';
+import "./App.css";
+import NavbarComponent from "./header/Header";
+import Directions from "./directions/Directions";
+import Main from "./main/Main";
+import Trainers from "./trainers/Trainers";
+import Gyms from "./gyms/Gyms";
+import Footer from "./Components/Footer";
+import {
+	BrowserRouter as Router,
+	Switch,
+	Route,
+	Redirect,
+} from "react-router-dom";
 
 const App = () => {
-  return (
-    <div className="App">
-        <Navbar bg="dark" variant="dark">
-    <Navbar.Brand href="#home">Dance School</Navbar.Brand>
-    <Nav className="mr-auto">
-      <Nav.Link href="#home">Главная</Nav.Link>
-      <Nav.Link href="#diractions">Направления</Nav.Link>
-      <Nav.Link href="#trainers">Тренеры</Nav.Link>
-      <Nav.Link href="#gyms">Залы</Nav.Link>
-    </Nav>
-    <Form inline>
-      <FormControl type="text" placeholder="Шукай" className="mr-sm-5" />
-      <Button variant="outline-light">Го</Button>
-    </Form>
-  </Navbar>
-    </div>
-  );
-}
+	return (
+		<div className="App">
+			<NavbarComponent />
+			<Router>
+				<Switch>
+					<Route path="/main">
+						<Main />
+					</Route>
+
+					<Route path="/trainers">
+						<Trainers />
+					</Route>
+
+					<Route path="/gyms">
+						<Gyms />
+					</Route>
+
+					<Route path="/directions">
+						<Directions />
+					</Route>
+
+					<Route path="*">
+						<Redirect to="/Main" push={true} />
+					</Route>
+				</Switch>
+			</Router>
+			<Footer/>
+		</div>
+	);
+};
 
 export default App;
